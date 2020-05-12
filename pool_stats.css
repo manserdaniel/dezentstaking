@@ -1,0 +1,125 @@
+.grid {
+    height: auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr 800px 1fr;
+    grid-template-rows: 100px 1fr 150px;
+    grid-template-areas:
+    ". header ."
+    ". main ."
+    ". footer .";
+}
+
+.main {
+    grid-area: main;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "table table"
+    "galerie galerie";
+}
+
+#stats_table{
+    grid-area: table;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    border-collapse: collapse;
+    width:90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#stats_table td, #stats_table th {
+    border: 1px solid grey;
+    padding: 5px;
+}
+
+#stats_table tr:nth-child(even){background-color: #f2f2f2;}
+#stats_table tr:hover {background-color: #ddd;}
+
+#stats_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+
+caption {
+    margin-bottom: 25px;
+    text-align: center; 
+    font-size: 32px;
+}
+
+.main {
+    height: 800px;
+}
+
+/*
+.twitter-timeline {
+    max-height: 600px;
+    max-width: 380px;
+    grid-area: twitter;
+    overflow: scroll;
+}*/
+
+#galerie {
+    margin-top: 50px;
+    grid-area: galerie;
+    display: flex;
+    padding-inline-start: auto;
+    padding-inline-end: auto;
+}
+
+li {
+	display: flex;	
+	list-style-type: none;
+    width: 45%;
+}
+
+img {
+    display: flex;
+	padding: 0;
+	margin: 0;	
+	width: 100%;  /* Bild passt sich an verfügbaren Raum im li an */
+}
+
+button {
+  padding: 0.1em;
+}
+
+@media all and (min-width: 35em) {
+	button {
+		padding: 0.1em;
+		width: 10em;
+		height: 7.5em;
+		position: relative;	
+	}
+
+	button img {
+		border: 0;
+		position: absolute;
+		left: 0%;
+		top: 0%;
+		z-index: 1;
+		box-shadow: 0;
+		width: 10em;		
+		transition: all 1s;			
+	}
+
+	button:focus img, 
+	button:hover img {
+		border: 2em solid #eee;
+		border-radius: 1em;
+		box-shadow: 1px 1px 5px #333;
+		width: 300%;
+		position: absolute;
+		left: -4%;
+		top: -4%;
+		z-index: 5;
+
+		transition: all 1s;		
+	}	
+}
